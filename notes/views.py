@@ -1,3 +1,14 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import *
+
+def list(request):
+    all_notes = Notes.objects.all()
+    
+    return render(request, 'notes/note_list.html',
+                  {
+                      'notes' : all_notes,
+                  }
+                  )
+    
+    

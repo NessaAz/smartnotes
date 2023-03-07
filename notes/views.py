@@ -12,3 +12,10 @@ def list(request):
                   )
     
     
+def detail(request, pk):
+        note = Notes.objects.get(pk=pk)
+        
+        return render(request, 'notes/note_detail.html',
+                      {
+                          'note': note,
+                      })
